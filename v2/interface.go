@@ -11,4 +11,5 @@ type Repository[E Entity] interface {
 	FindByFilter(ctx context.Context, filters map[string]any) ([]E, error)
 	Save(ctx context.Context, ent *E) error
 	DeleteByID(ctx context.Context, key interface{}) error
+	DeleteAll(ctx context.Context) error
 }
