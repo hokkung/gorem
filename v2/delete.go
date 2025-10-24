@@ -23,3 +23,11 @@ func (r *BaseRepository[E]) Delete(ctx context.Context, ent *E) error {
 	resp := r.GetDB(ctx).Delete(ent)
 	return resp.Error
 }
+
+func (r *BaseRepository[E]) DeleteAll(ctx context.Context) error {
+	_, err := gorm.G[E](r.GetDB(ctx)).Where("1 = 1").Delete(ctx)
+	if err != nil {
+		return nil
+	}
+	return nil
+}
