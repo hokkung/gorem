@@ -7,7 +7,6 @@ import (
 	"gorm.io/gorm"
 )
 
-
 type Entity interface {
 	TableName() string
 	PrimaryKey() string
